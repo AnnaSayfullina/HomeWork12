@@ -98,10 +98,19 @@ public class Main {
         Library libraries= new Library(6);
         Author levTolstoy = new Author("Лев", "Толстой");
         Book warAndPeace = new Book("Война и мир", levTolstoy, 2019);
-        libraries.addBookToArray(warAndPeace);
-        libraries.printBook(allBooks);
-        libraries.printInformationNameBook(allBooks, "Гарри Поттер");
-        libraries.changePublicationYear(allBooks,"Пиковая дама", 2023);
+        libraries.addBookToArray(warAndPeace); //пришлось заново вызывать методы и заполнять массив. Чувствую, что
+        // ошибка где-то в конструкторе(массив allBooks почему-то по итогу не копируется из класса Main). Не понимаю как исправить.
+        libraries.addBookToArray(harryPotter);
+        libraries.addBookToArray(hobbit);
+        libraries.addBookToArray(lordOfTheRings);
+        libraries.addBookToArray(hisDarkMaterials);
+        libraries.addBookToArray(queenOfSpades);
+
+        libraries.printBook(libraries.getAllBooks());
+        System.out.println();
+        libraries.printInformationNameBook(libraries.getAllBooks(), "Гарри Поттер");
+        System.out.println();
+        libraries.changePublicationYear(libraries.getAllBooks(),"Пиковая дама", 2023);
     }
 
 }
