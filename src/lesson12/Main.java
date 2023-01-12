@@ -51,6 +51,20 @@ package lesson12;
  *     5. Объявлены новые методы.
  *     6. Методы корректно справляются со своей задачей.
  */
+
+/**
+ * Задание урок "Методы объектов"
+ * Реализуйте методы toString, equals и hashCode в классах Author и Book, которые вы создали на прошлом уроке.
+ * Обратите внимание, что toString книги не должен дублировать код из toString автора,
+ * а должен делегировать (вызывать) его версию метода.
+ * ### **Сложный уровень**
+ * Реализуйте метод toString в классе Library, который выводит все книги библиотеки в формате:
+ * Library:
+ * книга1
+ * книга2
+ * Использовать геттеры при написании этого метода запрещено. Нужно корректно делегировать формирование
+ * строки методу toString из книги.
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Задание");
@@ -86,6 +100,14 @@ public class Main {
         libraries.printInformationNameBook(libraries.getAllBooks(), "Гарри Поттер");
         System.out.println();
         libraries.changePublicationYear(libraries.getAllBooks(),"Пиковая дама", 2023);
-    }
 
+        System.out.println(libraries);
+        System.out.println("harryPotter.equals(hobbit) = " + harryPotter.equals(hobbit));
+        System.out.println("levTolstoy.equals(joanneRowling) = " + levTolstoy.equals(joanneRowling));
+        System.out.println("harryPotter.hashCode()==queenOfSpades.hashCode() = " + (harryPotter.hashCode() == queenOfSpades.hashCode()));
+        Book harryPotter1 = new Book("Гарри Поттер", joanneRowling, 2008);
+        System.out.println("harryPotter.equals(harryPotter1) = " + harryPotter.equals(harryPotter1));
+        System.out.println("harryPotter.hashCode()==harryPotter1.hashCode() = " + (harryPotter.hashCode() == harryPotter1.hashCode()));
+
+    }
 }

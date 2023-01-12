@@ -1,4 +1,7 @@
 package lesson12;
+
+import java.util.Arrays;
+
 public class Library {
     private Book[] allBooks;
     private int sizeArray;
@@ -37,6 +40,14 @@ public class Library {
         }
     }
     public Book[] getAllBooks(){
-        return allBooks;
+        return this.allBooks;
+    }
+    @Override
+    public String toString() {
+        StringBuilder library = new StringBuilder();
+        for (int i = 0; i < allBooks.length; i++) {
+            library.append(allBooks[i] + "\n");
+        }
+        return "Библиотека: " + "\n" + library;
     }
 }
