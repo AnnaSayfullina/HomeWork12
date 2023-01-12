@@ -52,20 +52,6 @@ package lesson12;
  *     6. Методы корректно справляются со своей задачей.
  */
 public class Main {
-    public static Book[] allBooks = new Book[5];
-    public static void addBookToArray(Book nameBook) {
-        for (int i = 0; i < allBooks.length; i++){
-            if (allBooks[i] == null) {
-                allBooks[i] = nameBook;
-            return;
-            }
-        }
-    }
-    public static void printBook (Book[]  nameBook) {
-        for (int i = 0; i < nameBook.length; i++) {
-            System.out.printf("%s: %s: %d%n", nameBook[i].getAuthor(), nameBook[i].getName(), nameBook[i].getYear());
-        }
-    }
     public static void main(String[] args) {
         System.out.println("Задание");
         Author joanneRowling = new Author("Джоан", "Роллинг");
@@ -78,29 +64,18 @@ public class Main {
         System.out.println(harryPotter.getName() +", " + harryPotter.getAuthor() + ", " + harryPotter.getYear());
 
         System.out.println();
-        System.out.println("Задание Средний уровень");
-
         Author johnTolkien = new Author("Джон", "Толкин");
         Book lordOfTheRings = new Book("Властелин колец", johnTolkien, 2016);
         Book hobbit = new Book("Хоббит, или туда и обратно", johnTolkien, 2018);
         Author pushkin = new Author("Александр", "Пушкин");
         Book queenOfSpades = new Book("Пиковая дама", pushkin, 2014);
 
-        addBookToArray(harryPotter);
-        addBookToArray(hisDarkMaterials);
-        addBookToArray(lordOfTheRings);
-        addBookToArray(hobbit);
-        addBookToArray(queenOfSpades);
-        printBook(allBooks);
-        System.out.println();
-
-        System.out.println("Сложный уровень");
         Library libraries= new Library(6);
         Author levTolstoy = new Author("Лев", "Толстой");
         Book warAndPeace = new Book("Война и мир", levTolstoy, 2019);
-        libraries.addBookToArray(warAndPeace); //пришлось заново вызывать методы и заполнять массив. Чувствую, что
-        // ошибка где-то в конструкторе(массив allBooks почему-то по итогу не копируется из класса Main). Не понимаю как исправить.
+        libraries.addBookToArray(warAndPeace);
         libraries.addBookToArray(harryPotter);
+
         libraries.addBookToArray(hobbit);
         libraries.addBookToArray(lordOfTheRings);
         libraries.addBookToArray(hisDarkMaterials);

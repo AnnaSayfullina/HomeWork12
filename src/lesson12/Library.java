@@ -1,13 +1,11 @@
 package lesson12;
 public class Library {
-    private Book[] allBooks = new Book[5];
+    private Book[] allBooks;
     private int sizeArray;
-
     public Library(int sizeArray) {
-        allBooks = new Book[sizeArray];
+        this.allBooks = new Book[sizeArray];
         this.sizeArray = sizeArray;
     }
-
     public void addBookToArray(Book nameBook) {
         for (int i = 0; i < allBooks.length; i++) {
             if (allBooks[i] == null) {
@@ -38,7 +36,7 @@ public class Library {
             }
         }
     }
-    public Book[] getAllBooks(){ //пришлось создать геттер для нового массива, чтобы он был доступен из класса Library
+    public Book[] getAllBooks(){
         return allBooks;
     }
 }
